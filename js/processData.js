@@ -12,6 +12,7 @@ function processData() {
 
 
 	const weeksInCurrentYear = (numberOfYears - Math.floor(numberOfYears))*52.1429
+	const monthsInCurrentYear = (numberOfYears - Math.floor(numberOfYears))*12
 	
 
 	//not used but just for fun
@@ -19,7 +20,7 @@ function processData() {
 
 	let data = []
 
-	for (let i = 0; i < numberOfWeeks; i++){
+	for (let i = 0; i < numberOfMonths; i++){
 		data.push({week: i, activity: [], tags: [], skills: []})
 	}
 
