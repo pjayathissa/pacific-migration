@@ -389,22 +389,22 @@ var scrollVis = function () {
 
 
 
-        g.selectAll('.square').transition()
-              .attr('width', squareSize * 0.8)
-              .attr('height', squareSize * 0.8)
-              .attr('y', 0)
-              .delay((d,i) => Math.floor(i/52)*30);
+        // g.selectAll('.square').transition()
+        //       .attr('width', squareSize * 0.8)
+        //       .attr('height', squareSize * 0.8)
+        //       .attr('y', 0)
+        //       .delay((d,i) => Math.floor(i/52)*30);
 
 
-        g.selectAll('.squareGroup')
-              .transition()
-              .attr("transform", function(d,i){
-                    let x = (d.week%52)*squareSize
-                    let y = (Math.floor(d.week/52))*squareSize
-                  return "translate(" + x  + "," + y + ")"
-                    }
-                )
-              .delay((d,i) => Math.floor(i) + 1000)
+        // g.selectAll('.squareGroup')
+        //       .transition()
+        //       .attr("transform", function(d,i){
+        //             let x = (d.week%52)*squareSize
+        //             let y = (Math.floor(d.week/52))*squareSize
+        //           return "translate(" + x  + "," + y + ")"
+        //             }
+        //         )
+        //       .delay((d,i) => Math.floor(i) + 1000)
 
   }
 
