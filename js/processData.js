@@ -20,7 +20,7 @@ function processData() {
 
 	let data = []
 
-	for (let i = 0; i < numberOfMonths; i++){
+	for (let i = 0; i < numberOfWeeks; i++){
 		data.push({week: i, activity: [], tags: [], skills: []})
 	}
 
