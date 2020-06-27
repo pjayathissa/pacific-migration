@@ -216,10 +216,10 @@ var scrollVis = function () {
         var squaresWorst = squareGroup.append('rect')
                         .attr('width', 1)
                         .attr('height', (d,i) => {
-                            return i / 6
+                            return i / 10
                           })
                           .attr('y', (d,i) => {
-                            return -i / 6
+                            return -i / 10
                           })
                         .attr('fill', 'red')
                         .attr('opacity', 0)
@@ -232,7 +232,17 @@ var scrollVis = function () {
                         .attr('opacity', 1)
                         .attr('class', 'square')
 
-          
+        var squaresBest = squareGroup.append('rect')
+                        .attr('width', 1)
+                        .attr('height', (d,i) => {
+                            return i / 10
+                          })
+                          .attr('y', (d,i) => {
+                            return -i / 10
+                          })
+                        .attr('fill', 'blue')
+                        .attr('opacity', 0)
+                        .attr('class', 'squareBest')  
 
     // barchart
     // @v4 Using .merge here to ensure
@@ -433,6 +443,16 @@ var scrollVis = function () {
                 return -i / 10
               })
               .delay((d,i) => Math.floor(i/52)*30 + 2000);
+
+
+     g.selectAll('.squareWorst')
+              .transition()
+              .attr('opacity', 0)
+
+      g.selectAll('.squareBest')
+              .transition()
+              .attr('opacity', 0)
+
   }
 
   /**
@@ -465,9 +485,27 @@ var scrollVis = function () {
     // };
 
        g.selectAll('.squareWorst')
+              .attr('opacity', 1)
+
+      g.selectAll('.squareWorst')
+              .transition()          
+              .attr('height', (d,i) => {
+                return i / 6
+              })
+              .attr('y', (d,i) => {
+                return -i / 6
+              })
+
+
+      g.selectAll('.squareBest')
               .transition()
               .attr('opacity', 1)
-              .delay((d,i) => Math.floor(i/52)*30);
+              .attr('height', (d,i) => {
+                return i / 15
+              })
+              .attr('y', (d,i) => {
+                return -i / 15
+              })
 
 
 
