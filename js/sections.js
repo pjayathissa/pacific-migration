@@ -105,6 +105,9 @@ var scrollVis = function () {
    */
   var chart = function (selection) {
     selection.each(function (rawData) {
+
+      
+      const staggerVisualizerEl = document.querySelector('.viz');
       // create svg and give it a width and height
       svg = d3.select(this).selectAll('svg').data([processedData]);
       var svgE = svg.enter().append('svg');
@@ -373,10 +376,18 @@ var scrollVis = function () {
 
      function showFirstGrid() {
 
-         g.selectAll('.squareGroup').data(processedData)
-              .transition()
-              .attr('opacity', 1)
-              .delay((d,i) => Math.floor(i/52)*30);
+      anime({
+        targets: '.squareGroup',
+        opacity: 1,
+        delay: anime.stagger(1) // increase delay by 100ms for each elements.
+      });
+
+         // g.selectAll('.squareGroup').data(processedData)
+         //      .transition()
+         //      .attr('opacity', 1)
+         //      .delay((d,i) => Math.floor(i/52)*30);
+
+
 
         g.selectAll('.square').transition()
               .attr('width', squareSize * 0.8)
